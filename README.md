@@ -1,2 +1,2 @@
-# microservice-springcloud-rabbitmq-keyclock-docker
-Microservices, Serviços de Mensageria, RabbitMQ, Keycloak, Eurika, Load Balancer, Docker e muito mais
+# microservice-springcloud-rabbitmq-keyclock-eurekaserver-docker
+Microservices, Serviços de Mensageria, RabbitMQ, Keycloak, Eureka Server, Load Balancer, Docker e muito mais
