@@ -6,6 +6,7 @@ services:
       context: ./eureka-server
       dockerfile: Dockerfile
     container_name: eureka-server
+    hostname: 127.0.0.1
     ports:
       - "8761:8761"
     networks:
@@ -16,60 +17,68 @@ services:
       context: ./msavaliadorcredito
       dockerfile: Dockerfile
     container_name: cursoms-avaliadorcredito
+    environment:
+      RABBITMQ_SERVER: cursoms-rabbitmq
+      EUREKA_SERVER: eureka-server
+    hostname: 127.0.0.1
     networks:
       - cursoms-network
-    environment:
-      EUREKA_SERVER: cursoms-eureka
 
   cursoms-cartoes:
     build:
       context: ./mscartoes
       dockerfile: Dockerfile
     container_name: cursoms-cartoes
+    environment:
+      EUREKA_SERVER: eureka-server
+      RABBITMQ_SERVER: cursoms-rabbitmq
+    hostname: 127.0.0.1
     networks:
       - cursoms-network
-    environment:
-      EUREKA_SERVER: cursoms-eureka
 
   cursoms-clientes:
     build:
       context: ./msclientes
       dockerfile: Dockerfile
     container_name: cursoms-clientes
+    environment:
+      EUREKA_SERVER: eureka-server
+    hostname: 127.0.0.1
     networks:
       - cursoms-network
-    environment:
-      EUREKA_SERVER: cursoms-eureka
 
   cursoms-gateway:
     build:
       context: ./mscloudgateway
       dockerfile: Dockerfile
     container_name: cursoms-gateway
+    environment:
+      EUREKA_SERVER: eureka-server
+      KEYCLOAK_SERVER: 127.0.0.1
+      KEYCLOAK_PORT: 8081
+    hostname: 127.0.0.1
     ports:
       - "8080:8080"
     networks:
       - cursoms-network
-    environment:
-      EUREKA_SERVER: cursoms-eureka
-      KEYCLOAK_SERVER: cursoms-keycloak
-      KEYCLOAK_PORT: 8081
 
   cursoms-keycloak:
     image: quay.io/keycloak/keycloak:18.0.0
     container_name: cursoms-keycloak
-    ports:
-      - "8081:8080"
     environment:
       KEYCLOAK_ADMIN: admin
       KEYCLOAK_ADMIN_PASSWORD: admin
+    command: start-dev
+    hostname: 127.0.0.1
+    ports:
+      - "8081:8080"
     networks:
       - cursoms-network
-    command: start-dev
 
   cursoms-rabbitmq:
     image: rabbitmq:3.9-management
     container_name: cursoms-rabbitmq
+    hostname: 127.0.0.1
     ports:
       - "5672:5672"
       - "15672:15672"
