@@ -1,0 +1,6 @@
+/home/dsilva/www/msclientes/src/main/java/com/douglasmatosdev/mscclientes/application/representation/ClienteSaveRequest.java
+/home/dsilva/www/msclientes/src/main/java/com/douglasmatosdev/mscclientes/MscclientesApplication.java
+/home/dsilva/www/msclientes/src/main/java/com/douglasmatosdev/mscclientes/domain/Cliente.java
+/home/dsilva/www/msclientes/src/main/java/com/douglasmatosdev/mscclientes/infra/repository/ClienteRepository.java
+/home/dsilva/www/msclientes/src/main/java/com/douglasmatosdev/mscclientes/application/ClientesResource.java
+/home/dsilva/www/msclientes/src/main/java/com/douglasmatosdev/mscclientes/application/ClienteService.java

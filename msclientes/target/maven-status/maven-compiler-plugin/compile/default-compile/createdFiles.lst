@@ -1,0 +1,6 @@
+com/douglasmatosdev/mscclientes/infra/repository/ClienteRepository.class
+com/douglasmatosdev/mscclientes/application/ClienteService.class
+com/douglasmatosdev/mscclientes/MscclientesApplication.class
+com/douglasmatosdev/mscclientes/application/ClientesResource.class
+com/douglasmatosdev/mscclientes/application/representation/ClienteSaveRequest.class
+com/douglasmatosdev/mscclientes/domain/Cliente.class
