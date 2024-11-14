@@ -6,7 +6,7 @@ services:
       context: ./eureka-server
       dockerfile: Dockerfile
     container_name: eureka-server
-    hostname: 127.0.0.1
+    hostname: localhost
     ports:
       - "8761:8761"
     networks:
@@ -69,7 +69,7 @@ services:
       KEYCLOAK_ADMIN: admin
       KEYCLOAK_ADMIN_PASSWORD: admin
     command: start-dev
-    hostname: 127.0.0.1
+    hostname: localhost
     ports:
       - "8081:8080"
     networks:
@@ -78,7 +78,7 @@ services:
   cursoms-rabbitmq:
     image: rabbitmq:3.9-management
     container_name: cursoms-rabbitmq
-    hostname: 127.0.0.1
+    hostname: localhost
     ports:
       - "5672:5672"
       - "15672:15672"
